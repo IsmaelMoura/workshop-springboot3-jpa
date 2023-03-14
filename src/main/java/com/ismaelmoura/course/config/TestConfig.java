@@ -14,6 +14,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Arrays;
 
@@ -40,11 +41,35 @@ public class TestConfig implements CommandLineRunner {
         Category category2 = new Category(null, "Books");
         Category category3 = new Category(null, "Computers");
 
-        Product product1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, "");
-        Product product2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, "");
-        Product product3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
-        Product product4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
-        Product product5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
+        Product product1 = new Product(null,
+                "The Lord of the Rings",
+                "Lorem ipsum dolor sit amet, consectetur.",
+                new BigDecimal("90.5"),
+                "");
+
+        Product product2 = new Product(null,
+                "Smart TV",
+                "Nulla eu imperdiet purus. Maecenas ante.",
+                new BigDecimal("2190.0"),
+                "");
+
+        Product product3 = new Product(null,
+                "Macbook Pro",
+                "Nam eleifend maximus tortor, at mollis.",
+                new BigDecimal("1250.0"),
+                "");
+
+        Product product4 = new Product(null,
+                "PC Gamer",
+                "Donec aliquet odio ac rhoncus cursus.",
+                new BigDecimal("1200.0"),
+                "");
+
+        Product product5 = new Product(null,
+                "Rails for Dummies",
+                "Cras fringilla convallis sem vel faucibus.",
+                new BigDecimal("100.99"),
+                "");
 
         categoryRepository.saveAll(Arrays.asList(category1, category2, category3));
         productRepository.saveAll(Arrays.asList(product1, product2, product3, product4, product5));
