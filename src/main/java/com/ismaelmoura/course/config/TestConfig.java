@@ -2,10 +2,12 @@ package com.ismaelmoura.course.config;
 
 import com.ismaelmoura.course.entities.Category;
 import com.ismaelmoura.course.entities.Order;
+import com.ismaelmoura.course.entities.Product;
 import com.ismaelmoura.course.entities.User;
 import com.ismaelmoura.course.entities.enums.OrderStatus;
 import com.ismaelmoura.course.respositories.CategoryRepository;
 import com.ismaelmoura.course.respositories.OrderRepository;
+import com.ismaelmoura.course.respositories.ProductRepository;
 import com.ismaelmoura.course.respositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -28,6 +30,9 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private ProductRepository productRepository;
+
     @Override
     public void run(String... args) throws Exception {
 
@@ -35,7 +40,14 @@ public class TestConfig implements CommandLineRunner {
         Category category2 = new Category(null, "Books");
         Category category3 = new Category(null, "Computers");
 
+        Product product1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, "");
+        Product product2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, "");
+        Product product3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
+        Product product4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
+        Product product5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
+
         categoryRepository.saveAll(Arrays.asList(category1, category2, category3));
+        productRepository.saveAll(Arrays.asList(product1, product2, product3, product4, product5));
 
         User user1 = new User(null,
                 "Maria Brown",
