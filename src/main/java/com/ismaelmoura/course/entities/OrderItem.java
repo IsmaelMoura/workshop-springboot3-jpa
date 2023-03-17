@@ -66,14 +66,12 @@ public class OrderItem implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         OrderItem orderItem = (OrderItem) o;
-
         return Objects.equals(id, orderItem.id);
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        return Objects.hash(id);
     }
 }
